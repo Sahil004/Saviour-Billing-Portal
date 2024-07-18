@@ -12,7 +12,7 @@ function App() {
         <HeaderComponent />
         <Routes>
           {/* http:/localhost:3000 */}
-          <Route path='/'></Route>
+          <Route path='/' element={<ListClientComponent/>}></Route>
           {/* http:/localhost:3000/clients */}
           <Route path='/clients' element={<ListClientComponent/>}></Route>
           {/* http:/localhost:3000/add-client */}
