@@ -1,11 +1,25 @@
+import './App.css';
+import ClientComponent from './components/ClientComponent';
+import FooterComponent from "./components/FooterComponent";
+import HeaderComponent from "./components/HeaderComponent";
 import ListClientComponent from "./components/ListClientComponent";
-// import HelloWorld from "./HelloWorld";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <>
-      {/* <HelloWorld/> */}
-      <ListClientComponent/>
+      <BrowserRouter>
+        <HeaderComponent />
+        <Routes>
+          {/* http:/localhost:3000 */}
+          <Route path='/'></Route>
+          {/* http:/localhost:3000/clients */}
+          <Route path='/clients' element={<ListClientComponent/>}></Route>
+          {/* http:/localhost:3000/add-client */}
+          <Route path='/add-client' element={<ClientComponent/>}></Route>
+        </Routes>
+        <FooterComponent />
+      </BrowserRouter>
     </>
   );
 }

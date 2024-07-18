@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react"
 import { listClient } from "../services/ClientService"
+import { useNavigate } from "react-router-dom"
 
 const ListClientComponent = () =>{
 
     const [clients, setClient] = useState([])
+
+    const navigator = useNavigate();
 
     useEffect(() => {
         listClient().then((response) => {
@@ -12,10 +15,12 @@ const ListClientComponent = () =>{
             console.error(error);
         })
     }, [])
-        
+       
+    const addNewClient = () =>navigator('/add-client');
     return (
         <div className="container">
             <h1 className="text-center">List of Clients</h1>
+            <button className="btn btn-success my-4" onClick={addNewClient}>Add Client</button>
             <table className="table table-striped table-bordered">
                 <thead>
                     <tr>
