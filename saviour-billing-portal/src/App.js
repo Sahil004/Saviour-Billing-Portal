@@ -4,6 +4,7 @@ import FooterComponent from "./components/FooterComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import ListClientComponent from "./components/ListClientComponent";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Register from './components/Register';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <Routes>
           {/* http:/localhost:3000 */}
           <Route path='/' element={<ListClientComponent/>}></Route>
+          {/* http:/localhost:3000/admin */}
+          <Route path='/admin' element={<Register/>}></Route>
           {/* http:/localhost:3000/clients */}
           <Route path='/clients' element={<ListClientComponent/>}></Route>
           {/* http:/localhost:3000/add-client */}
