@@ -1,25 +1,48 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { createClient } from '../services/ClientService';
+import { createClient, getClient, updateClient } from '../services/ClientService';
+import { useParams } from 'react-router-dom';
 
 const ClientComponent = () => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const navigator = useNavigate();
-
     const [errors, setErrors] = useState({ name: '', email: '' })
-    function saveClient(e) {
+    const navigator = useNavigate();
+    const {id} = useParams();
+    useEffect(() => {
+        if(id){
+            getClient(id).then((response) => {
+                setName(response.data.name);
+                setEmail(response.data.email);
+            }).catch(error => {
+                console.error(error);
+            })
+        }
+    }, [id])
+    function saveOrUpdateClient(e) {
         e.preventDefault();
         if (validateForm()) {
+
             const client = { name, email }
             console.log(client);
 
-            createClient(client).then((response) => {
-                console.log(response.data);
-                navigator('/clients');
-            })
+            if(id){
+                updateClient(id, client).then((response) => {
+                    console.log(response.data);
+                    navigator('/clients')
+                }).catch(error => {
+                    console.error(error);
+                })
+            } else {
+                createClient(client).then((response) => {
+                    console.log(response.data);
+                    navigator('/clients');
+                }).catch(error => {
+                    console.error(error);
+                })
+            }  
         }
     }
 
@@ -45,12 +68,22 @@ const ClientComponent = () => {
 
         return valid;
     }
+
+    function pageTitle() {
+        if(id) {
+            return <h2 className='text-center'>Update Client</h2>
+        } else {
+            return <h2 className='text-center'>Add Client</h2>
+        }
+    }
     return (
 
         <div className='container my-5'>
             <div className='row'>
                 <div className="card col-md-6 offset-md-3">
-                    <h2 className='text-center'>Add Client</h2>
+                    {
+                        pageTitle()
+                    }
                     <div className="card-body">
                         <form action="">
                             <div className='form-group mb-2'>
@@ -68,7 +101,7 @@ const ClientComponent = () => {
                                 </input>
                                 {errors.email && <div className='invalid-feedback'>{errors.email}</div>}
                             </div>
-                            <button className='btn btn-success' onClick={saveClient}>Add Client</button>
+                            <button className='btn btn-success' onClick={saveOrUpdateClient}>Add Client</button>
                         </form>
                     </div>
                 </div>

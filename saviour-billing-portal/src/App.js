@@ -17,6 +17,8 @@ function App() {
           <Route path='/clients' element={<ListClientComponent/>}></Route>
           {/* http:/localhost:3000/add-client */}
           <Route path='/add-client' element={<ClientComponent/>}></Route>
+          {/* http:/localhost:3000/edit-client/id */}
+          <Route path="edit-client/:id" element={<ClientComponent/>}></Route>
         </Routes>
         <FooterComponent />
       </BrowserRouter>
