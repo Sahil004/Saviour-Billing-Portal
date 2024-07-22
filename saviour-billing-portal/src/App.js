@@ -5,15 +5,16 @@ import HeaderComponent from "./components/HeaderComponent";
 import ListClientComponent from "./components/ListClientComponent";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Register from './components/Register';
+import LoginComponenet from './components/LoginComponenet';
+import SignIn from './components/SignIn';
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <HeaderComponent />
+      <BrowserRouter> 
         <Routes>
           {/* http:/localhost:3000 */}
-          <Route path='/' element={<ListClientComponent/>}></Route>
+          <Route path='/' element={<LoginComponenet/>}></Route>
           {/* http:/localhost:3000/admin */}
           <Route path='/admin' element={<Register/>}></Route>
           {/* http:/localhost:3000/clients */}
@@ -23,7 +24,7 @@ function App() {
           {/* http:/localhost:3000/edit-client/id */}
           <Route path="edit-client/:id" element={<ClientComponent/>}></Route>
         </Routes>
-        <FooterComponent />
+        
       </BrowserRouter>
     </>
   );

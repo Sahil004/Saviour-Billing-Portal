@@ -1,0 +1,45 @@
+
+.signin {
+    background: linear-gradient(45deg, #379330, hsl(59, 85%, 37%));
+}
+.card {
+    border: none!important;
+    border-radius: 3px!important;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+.form-control {
+    border-radius: 2px!important;
+    padding: 16.5px 14px!important;
+}
+.form-control:hover {
+    box-shadow: none!important;
+    border: 2px solid #379330!important;
+    box-shadow: none!important;
+}
+
+.form-control:focus {
+    box-shadow: none!important;
+    border: 2 solid #379330!important;
+}
+
+.btn-primary {
+    background-color: #379330!important;
+    border: none!important;
+    border-radius: 5px!important;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #287122!important;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+}   
+
+.bi-lock-fill {
+    font-size: 48px;
+    color: #e53935;
+}
