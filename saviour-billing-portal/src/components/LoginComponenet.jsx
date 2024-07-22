@@ -4,7 +4,7 @@ import { loginAdmin } from '../services/AdminService';
 import '../assets/css/LoginComponent.css';
 import logo from '../assets/logo.jpg';
 
-const LoginComponenet = () => {
+const LoginComponenet = ({onLogin}) => {
 
     const [adminEmail, setAdminEmail] = useState('');
     const [adminPassword, setAdminPassword] = useState('');
@@ -21,7 +21,7 @@ const LoginComponenet = () => {
             if (response.data.message == "Email Not exist") {
                 setError("Email Not exist");
             } else if (response.data.message == "Login Success") {
-                navigate('/clients');
+                onLogin();
             } else {
                 setError("Wrong Password");
             }
@@ -35,7 +35,7 @@ const LoginComponenet = () => {
         <div className="signin">
             <div className="container">
                 <div className="row vh-100 justify-content-center align-items-center">
-                    <div className="card shadow-sm col-md-0 col-lg-4 p-4">
+                    <div className="card shadow-sm col-md-8 col-xl-4 p-4">
                         <div className="logo mx-auto">
                             <img src={logo} alt="saviour" />
                         </div>
