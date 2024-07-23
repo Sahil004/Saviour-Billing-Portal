@@ -1,11 +1,7 @@
 import './App.css';
-import ClientComponent from './components/ClientComponent';
-import FooterComponent from "./components/FooterComponent";
-import HeaderComponent from "./components/Header";
-import ListClientComponent from "./components/ListClientComponent";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Dashboard from './components/Dashboard';
-import LoginComponenet from './components/LoginComponenet';
+import Login from './components/Login';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -35,7 +31,7 @@ function App() {
           <Route path="/" element={<Navigate to="/login" />} ></Route>
           {/* http:/localhost:3000/login */}
           <Route path='/login' 
-            element={isAuthenticated ? <Navigate to="/dashboard" /> : <LoginComponenet onLogin={handleLogin} />}>  
+            element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login onLogin={handleLogin} />}>  
           </Route>
           {/* http:/localhost:3000/dashboard */}
           <Route path="/dashboard"

@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
 import { loginAdmin } from '../services/AdminService';
-import '../assets/css/LoginComponent.css';
+import '../assets/css/Login.css';
 import logo from '../assets/logo.jpg';
 
-const LoginComponenet = ({onLogin}) => {
+const Login = ({onLogin}) => {
 
     const [adminEmail, setAdminEmail] = useState('');
     const [adminPassword, setAdminPassword] = useState('');
     const [error, setError] = useState('');
-    const navigate = useNavigate();
 
     function confirmLogin(event) {
         event.preventDefault();
@@ -18,9 +16,9 @@ const LoginComponenet = ({onLogin}) => {
         loginAdmin(login).then((response) => {
             console.log(response.data);
             console.log(response.data.message);
-            if (response.data.message == "Email Not exist") {
+            if (response.data.message === "Email Not exist") {
                 setError("Email Not exist");
-            } else if (response.data.message == "Login Success") {
+            } else if (response.data.message === "Login Success") {
                 onLogin();
             } else {
                 setError("Wrong Password");
@@ -71,8 +69,7 @@ const LoginComponenet = ({onLogin}) => {
                 </div>
             </div>
         </div>
-
     )
 }
 
-export default LoginComponenet
+export default Login
