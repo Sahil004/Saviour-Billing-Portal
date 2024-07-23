@@ -37,6 +37,7 @@ function App() {
           <Route path="/dashboard"
             element={isAuthenticated ? <Dashboard onLogout={handleLogout}/> : <Navigate to="/login"></Navigate>}>
           </Route>
+          
         </Routes>
 
       </BrowserRouter>

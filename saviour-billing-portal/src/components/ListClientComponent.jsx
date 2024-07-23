@@ -4,23 +4,25 @@ import { useNavigate } from "react-router-dom"
 
 const ListClientComponent = () => {
 
-    const [clients, setClient] = useState([])
+    const [clients, setClients] = useState([])
 
-    const navigator = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => getAllClient(), []);
 
     function getAllClient(){
         listClient().then((response) => {
-            setClient(response.data);
+            console.log("API Response:", response.data);
+            setClients(response.data);
+            
         }).catch(error => {
             console.error(error);
-        })
-    }
-    const addNewClient = () => navigator('/add-client');
+        });
+    };
+    const addNewClient = () => navigate('/add-client');
 
     function updateClient(id) {
-        navigator(`/edit-client/${id}`);
+        navigate(`/edit-client/${id}`);
     }
 
     function removeClient(id) {
@@ -30,8 +32,8 @@ const ListClientComponent = () => {
             getAllClient();
         }).catch(error => {
             console.error(error);
-        })
-    }
+        });
+    };
     return (
         <div className="container">
             <h1 className="text-center">List of Clients</h1>
