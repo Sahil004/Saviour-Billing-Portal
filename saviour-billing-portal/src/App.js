@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import { useEffect, useState } from 'react';
+import ListClientComponent from './components/ListClientComponent';
+import ClientComponent from './components/ClientComponent';
 
 function App() {
 
@@ -36,6 +38,12 @@ function App() {
           {/* http:/localhost:3000/dashboard */}
           <Route path="/dashboard"
             element={isAuthenticated ? <Dashboard onLogout={handleLogout}/> : <Navigate to="/login"></Navigate>}>
+          </Route>
+          <Route path="/dashboard/addClient"
+            element={<ClientComponent onLogout={handleLogout}/>}>
+          </Route>
+          <Route path="/dashboard/viewClient"
+            element={<ListClientComponent onLogout={handleLogout}/>}>
           </Route>
           
         </Routes>

@@ -13,9 +13,24 @@ img {
     object-fit: cover;
 }
 
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* header  */
 .navbar-brand img {
     width: 200px;
 }
+
+.offcanvas {
+    width: 300px!important;
+}
+
+nav, .sidebar-title {
+    height: 10vh;
+}
+ 
 
 
 /* Sidebar */
@@ -25,11 +40,19 @@ img {
     height: 100vh;
 }
 
+.sidebar-body {
+    height: 90vh;
+}
+
 .dashboard-item {
     border: none!important;
     border-radius: 5px;
+    font-size: 0.875;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
 }
-.dashboard-item:hover{
+
+.dashboard-item:hover, .dashboard-item:focus{
     color: #379330!important;
     
     background-color: #E4F3E4!important;
@@ -38,5 +61,20 @@ img {
 .dashboard-item:focus {
     font-weight: 600;
 }
+
+/* main */
+
+.main {
+    height: 90vh;
+    overflow-x: auto;
+    overflow-y: auto; 
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(238, 242, 246)!important;
+    margin-right: 10px;
+}
+
+/* Client Component */
+
 
 

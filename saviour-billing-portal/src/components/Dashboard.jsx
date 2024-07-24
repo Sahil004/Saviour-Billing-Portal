@@ -6,6 +6,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import '../assets/css/dashboard.css'
 
+
 const Dashboard = ({ onLogout }) => {
 
 
@@ -25,17 +26,20 @@ const Dashboard = ({ onLogout }) => {
   return (
     <div className='container-fluid'>
       <div className='dashboard row'>
-      <div className="col-2 p-0">
-        <Sidebar onHandleViewClient={handleViewClient} onHandleAddClient={handleAddClient} />
+
+        <div className="d-none d-lg-block col-md-3 col-xl-2 col p-0">
+          <Sidebar onHandleViewClient={handleViewClient} onHandleAddClient={handleAddClient} />
+        </div>
+        <div className="col-12 col-lg-9 col-xl-10 p-0">
+          <Header onLogout={onLogout} onHandleViewClient={handleViewClient} onHandleAddClient={handleAddClient} />
+          <main className='container'>
+            <div className='main px-3 pt-3 px-lg-4 pt-lg-4'>
+              {viewClient && <ListClientComponent />}
+              {addClient && <ClientComponent />}
+            </div>
+          </main>
+        </div>
       </div>
-      <div className="col-10 p-0">
-        <Header onLogout={onLogout} />
-        <main>
-          {viewClient && <ListClientComponent />}
-          {addClient && <ClientComponent />}
-        </main>
-      </div>
-    </div>
     </div>
   );
 }
