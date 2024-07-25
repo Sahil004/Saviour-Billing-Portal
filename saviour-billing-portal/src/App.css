@@ -24,13 +24,23 @@ a {
 }
 
 .offcanvas {
-    width: 300px!important;
+    width: 300px !important;
 }
 
-nav, .sidebar-title {
+nav,
+.sidebar-title {
     height: 10vh;
 }
- 
+
+.navbar-toggler:focus, .navbar-toggler:active {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.offcanvas-header {
+    height: 10vh;
+}
+
 
 
 /* Sidebar */
@@ -44,22 +54,35 @@ nav, .sidebar-title {
     height: 90vh;
 }
 
+.li-border {
+    border-radius: 5px;
+}
 .dashboard-item {
-    border: none!important;
+    border: none !important;
     border-radius: 5px;
     font-size: 0.875;
     font-weight: 500;
     margin-bottom: 0.5rem;
 }
 
-.dashboard-item:hover, .dashboard-item:focus{
-    color: #379330!important;
-    
-    background-color: #E4F3E4!important;
+.dashboard-item:hover,
+.dashboard-item:focus, .dashboard-item:active  {
+    color: #379330 !important;
+
+    background-color: #E4F3E4 !important;
 }
 
 .dashboard-item:focus {
     font-weight: 600;
+}
+
+.dashboard-sub-item {
+    border: none!important;
+}
+
+.dashboard-sub-item:hover, .dashboard-sub-item:focus {
+    color: #379330 !important;
+    background-color: transparent!important;
 }
 
 /* main */
@@ -67,14 +90,24 @@ nav, .sidebar-title {
 .main {
     height: 90vh;
     overflow-x: auto;
-    overflow-y: auto; 
+    overflow-y: auto;
     width: 100%;
     border-radius: 10px;
-    background-color: rgb(238, 242, 246)!important;
+    background-color: rgb(238, 242, 246) !important;
     margin-right: 10px;
 }
 
+/* Table */
+
+.sticky-header thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: white;
+}
+.table-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
 /* Client Component */
-
-
-

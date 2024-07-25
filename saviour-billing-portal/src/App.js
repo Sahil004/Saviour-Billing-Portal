@@ -1,15 +1,12 @@
 import './App.css';
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import { useEffect, useState } from 'react';
-import ListClientComponent from './components/ListClientComponent';
-import ClientComponent from './components/ClientComponent';
 
 function App() {
-
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  
+
   useEffect(() => {
     const storedAuth = localStorage.getItem('isAuthenticated');
     setIsAuthenticated(storedAuth === 'true');
@@ -26,30 +23,19 @@ function App() {
   };
 
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          {/* http:/localhost:3000 */}
-          <Route path="/" element={<Navigate to="/login" />} ></Route>
-          {/* http:/localhost:3000/login */}
-          <Route path='/login' 
-            element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login onLogin={handleLogin} />}>  
-          </Route>
-          {/* http:/localhost:3000/dashboard */}
-          <Route path="/dashboard"
-            element={isAuthenticated ? <Dashboard onLogout={handleLogout}/> : <Navigate to="/login"></Navigate>}>
-          </Route>
-          <Route path="/dashboard/addClient"
-            element={<ClientComponent onLogout={handleLogout}/>}>
-          </Route>
-          <Route path="/dashboard/viewClient"
-            element={<ListClientComponent onLogout={handleLogout}/>}>
-          </Route>
-          
-        </Routes>
-
-      </BrowserRouter>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route
+          path='/login'
+          element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login onLogin={handleLogin} />}
+        />
+        <Route
+          path="/dashboard/*"
+          element={isAuthenticated ? <Dashboard onLogout={handleLogout} /> : <Navigate to="/login" />}
+        />
+      </Routes>
+    </Router>
   );
 }
 
