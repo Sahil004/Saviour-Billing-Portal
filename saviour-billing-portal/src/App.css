@@ -111,3 +111,11 @@ nav,
 }
 
 /* Client Component */
+
+/* Invoice */
+/* create invoice */
+
+.create-invoice label {
+    color: rgb(105, 117, 134)!important;
+    font-size: 0.875rem;
+}

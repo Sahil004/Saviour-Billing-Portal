@@ -35,12 +35,12 @@ const Sidebar = () => {
         </li>
         <ul className='collapse sub-list ps-5' id='clientSubmenu' style={{ listStyleType: 'disc' }}>
         <li>
-            <Link className='dashboard-sub-item list-group-item list-group-item-action fw-semibold' to="/dashboard/add-client">
+            <Link className='dashboard-sub-item list-group-item list-group-item-action fw-medium' to="/dashboard/add-client">
               Add
             </Link>
           </li>
           <li>
-            <Link className='dashboard-sub-item list-group-item list-group-item-action fw-semibold' to="/dashboard/client-list">
+            <Link className='dashboard-sub-item list-group-item list-group-item-action fw-medium' to="/dashboard/client-list">
               List
             </Link>
           </li>
@@ -56,12 +56,12 @@ const Sidebar = () => {
         </li>
         <ul className='collapse sub-list ps-5' id='invoiceSubmenu' style={{ listStyleType: 'disc' }}>
           <li>
-            <Link className='dashboard-sub-item list-group-item list-group-item-action fw-semibold' to="/dashboard/create-invoice">
+            <Link className='dashboard-sub-item list-group-item list-group-item-action fw-medium' to="/dashboard/create-invoice">
               Create
             </Link>
           </li>
           <li>
-            <Link className='dashboard-sub-item list-group-item list-group-item-action fw-semibold' to="/dashboard/invoice-list">
+            <Link className='dashboard-sub-item list-group-item list-group-item-action fw-medium' to="/dashboard/invoice-list">
               List
             </Link>
           </li>

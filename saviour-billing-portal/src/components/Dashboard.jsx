@@ -5,6 +5,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import '../assets/css/dashboard.css';
 import { Route, Routes } from 'react-router-dom';
+import CreateInvoice from './invoice/CreateInvoice';
 
 const Dashboard = ({ onLogout }) => {
   return (
@@ -20,6 +21,7 @@ const Dashboard = ({ onLogout }) => {
               <Routes>
                 <Route path="add-client" element={<ClientComponent />} />
                 <Route path="list-client" element={<ListClientComponent />} />
+                <Route path="create-invoice" element={<CreateInvoice />} />
                 {/* Add more routes as needed */}
               </Routes>
             </div>
