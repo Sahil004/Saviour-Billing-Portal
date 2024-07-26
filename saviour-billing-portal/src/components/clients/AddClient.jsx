@@ -3,10 +3,8 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { createClient, getClient, updateClient } from '../../services/ClientService';
 import { useParams } from 'react-router-dom';
-import Header from '../Header';
-import Sidebar from '../Sidebar';
 
-const ClientComponent = ({ onLogout }) => {
+const AddClient = ({ onLogout }) => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -86,7 +84,7 @@ const ClientComponent = ({ onLogout }) => {
                         pageTitle()
                     }
                     <div className="card-body">
-                        <form action="">
+                        <form action="" className='dashboard-form'>
                             <div className='form-group mb-2'>
                                 <label htmlFor="name" className='form-label'>Client Name</label>
                                 <input type="text" name="name" id="name" placeholder='Client Name' value={name}
@@ -111,4 +109,4 @@ const ClientComponent = ({ onLogout }) => {
     )
 }
 
-export default ClientComponent
+export default AddClient

@@ -20,35 +20,77 @@ const Header = ({ onLogout }) => {
                             <button type="button" className="btn-close text-reset col-4 ms-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div className="offcanvas-body">
-                            <ul className='sidebar-body list-group px-3'>
+                            <ul className='sidebar-body list-group px-3 list-unstyled'>
                                 <span className='fw-bold py-3'>Dashboard</span>
-                                <Link className='dashboard-item list-group-item list-group-item-action' to="/dashboard">
-                                    <i className="bi bi-laptop me-3"></i>
-                                    Home
-                                </Link>
-                                <Link className='dashboard-item list-group-item list-group-item-action' to="/dashboard/services">
-                                    <i className="bi bi-bag me-3"></i>
-                                    Services
-                                </Link>
-                                <li className='dashboard-item list-group-item list-group-item-action' data-bs-toggle='collapse'
+                                <li className="li-border">
+                                    <Link className='dashboard-item list-group-item list-group-item-action' to="/dashboard">
+                                        <i className="bi bi-laptop me-3"></i>
+                                        Home
+                                    </Link>
+                                </li>
+                                <li className='li-border' data-bs-toggle='collapse'
+                                    href='#servicesSubmenu'
+                                    role='button'
+                                    aria-expanded='false'
+                                    aria-controls='invoiceSubmenu'>
+                                    <Link className='dashboard-item list-group-item list-group-item-action'>
+                                        <i className="bi bi-receipt-cutoff me-3"></i>Services
+                                    </Link>
+                                </li>
+                                <ul className='collapse sub-list ps-5' id='servicesSubmenu' style={{ listStyleType: 'disc' }}>
+                                    <li>
+                                        <Link className='dashboard-sub-item list-group-item list-group-item-action fw-medium' to="/dashboard/services/create-service">
+                                            Create
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link className='dashboard-sub-item list-group-item list-group-item-action fw-medium' to="/dashboard/services/services-list">
+                                            List
+                                        </Link>
+                                    </li>
+                                </ul>
+                                <li className='li-border' data-bs-toggle='collapse'
                                     href='#clientSubmenu'
                                     role='button'
                                     aria-expanded='false'
                                     aria-controls='clientSubmenu'>
-                                    <i className="bi bi-people me-3"></i>Client
+                                    <Link className='dashboard-item list-group-item list-group-item-action'>
+                                        <i className="bi bi-people me-3"></i>Client
+                                    </Link>
                                 </li>
-                                <ul className='collapse sub-list list-group' id='clientSubmenu'>
-                                    <Link className='dashboard-item list-group-item list-group-item-action' to="/dashboard/addClient">
-                                        Add Client
-                                    </Link>
-                                    <Link className='dashboard-item list-group-item list-group-item-action' to="/dashboard/viewClient">
-                                        View Client
-                                    </Link>
+                                <ul className='collapse sub-list ps-5' id='clientSubmenu' style={{ listStyleType: 'disc' }}>
+                                    <li>
+                                        <Link className='dashboard-sub-item list-group-item list-group-item-action fw-medium' to="/dashboard/clients/add-client">
+                                            Add
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link className='dashboard-sub-item list-group-item list-group-item-action fw-medium' to="/dashboard/clients/client-list">
+                                            List
+                                        </Link>
+                                    </li>
                                 </ul>
-                                <Link className='dashboard-item list-group-item list-group-item-action' to="/dashboard/invoice">
-                                    <i className="bi bi-receipt-cutoff me-3"></i>
-                                    Invoice
-                                </Link>
+                                <li className='li-border' data-bs-toggle='collapse'
+                                    href='#invoiceSubmenu'
+                                    role='button'
+                                    aria-expanded='false'
+                                    aria-controls='invoiceSubmenu'>
+                                    <Link className='dashboard-item list-group-item list-group-item-action'>
+                                        <i className="bi bi-receipt-cutoff me-3"></i>Invoice
+                                    </Link>
+                                </li>
+                                <ul className='collapse sub-list ps-5' id='invoiceSubmenu' style={{ listStyleType: 'disc' }}>
+                                    <li>
+                                        <Link className='dashboard-sub-item list-group-item list-group-item-action fw-medium' to="/dashboard/invoice/create-invoice">
+                                            Create
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link className='dashboard-sub-item list-group-item list-group-item-action fw-medium' to="/dashboard/invoice-list">
+                                            List
+                                        </Link>
+                                    </li>
+                                </ul>
                             </ul>
                         </div>
                     </div>

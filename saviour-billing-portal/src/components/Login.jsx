@@ -39,7 +39,7 @@ const Login = ({onLogin}) => {
                         </div>
                         <h4 className="text-center mb-5">Sign in</h4>
 
-                        <form onSubmit={confirmLogin}>
+                        <form onSubmit={confirmLogin} className='signin-form'>
                             <div className="mb-3">
                                 <input
                                     type="email"

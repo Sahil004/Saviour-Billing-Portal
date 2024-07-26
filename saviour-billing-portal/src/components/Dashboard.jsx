@@ -1,11 +1,13 @@
 import React from 'react';
-import ClientComponent from './clients/AddClient';
-import ListClientComponent from './clients/ClientList';
+import AddClient from './clients/AddClient';
+import ClientList from './clients/ClientList';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import '../assets/css/dashboard.css';
 import { Route, Routes } from 'react-router-dom';
 import CreateInvoice from './invoice/CreateInvoice';
+import AddService from './service/AddService';
+import ServiceList from './service/ServiceList';
 
 const Dashboard = ({ onLogout }) => {
   return (
@@ -19,9 +21,11 @@ const Dashboard = ({ onLogout }) => {
           <main className='container'>
             <div className='main px-3 pt-3 px-lg-4 pt-lg-4'>
               <Routes>
-                <Route path="add-client" element={<ClientComponent />} />
-                <Route path="list-client" element={<ListClientComponent />} />
-                <Route path="create-invoice" element={<CreateInvoice />} />
+                <Route path="services/create-service" element={<AddService />} />
+                <Route path="services/services-list" element={<ServiceList />} />
+                <Route path="clients/add-client" element={<AddClient />} />
+                <Route path="clients/client-list" element={<ClientList />} />
+                <Route path="invoice/create-invoice" element={<CreateInvoice />} />
                 {/* Add more routes as needed */}
               </Routes>
             </div>

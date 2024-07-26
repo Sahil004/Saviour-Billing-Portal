@@ -8,13 +8,13 @@ const CreateInvoice = () => {
             </div>
             <hr className='m-0' />
             <div className="page-body p-4">
-                <form>
+                <form className='dashboard-form'>
                     <div class="row form-section">
                         <div class="form-group col-md-6 col-lg-4 pb-3">
                             <label for="invoiceNumber" className='text-grey'>Invoice Number *</label>
                             <input type="text" class="form-control rounded" id="invoiceNumber" placeholder="#58963" disabled />
                         </div>
-                        <div class="form-group col-md-6 col-lg-4 d-flex align-items-end pb-3">
+                        {/* <div class="form-group col-md-6 col-lg-4 d-flex align-items-end pb-3">
                             <div class="w-100">
                                 <label for="selectClient">Select Client</label>
                                 <div class="input-group">
@@ -27,31 +27,31 @@ const CreateInvoice = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
-                    <hr/>
+                    <hr />
                     <div class="row form-section">
                         <div class="form-group col-md-4 pb-3">
                             <label for="clientName">Client Name *</label>
-                            <input type="text" class="form-control rounded" id="clientName" placeholder="Alex Z." disabled />
+                            <input type="text" class="form-control rounded" id="clientName" placeholder="Alex Z." />
                         </div>
                         <div class="form-group col-md-4 pb-3">
                             <label for="clientEmail">Client Email *</label>
-                            <input type="email" class="form-control rounded" id="clientEmail" placeholder="alex@company.com" disabled />
+                            <input type="email" class="form-control rounded" id="clientEmail" placeholder="alex@company.com" />
                         </div>
                         <div class="form-group col-md-4 pb-3">
                             <label for="clientContactNumber">Client Contact Number *</label>
-                            <input type="text" class="form-control rounded" id="clientContactNumber" placeholder="+00 00000 00000" disabled />
+                            <input type="text" class="form-control rounded" id="clientContactNumber" placeholder="+00 00000 00000" />
                         </div>
                     </div>
-                    
+
                     <div class="row form-section">
                         <div class="form-group col-md-12 pb-3">
                             <label for="clientAddress">Client Address *</label>
                             <input type="text" class="form-control" id="clientAddress" placeholder="Enter Address" />
                         </div>
                     </div>
-                    <hr/>
+                    <hr />
                     <div class="form-row form-section">
                         <div class="form-group col-md-6">
                             <label for="invoiceDate">Invoice Date *</label>
@@ -70,6 +70,9 @@ const CreateInvoice = () => {
                                 <option selected>Pending</option>
                             </select>
                         </div>
+                    </div>
+                    <div className='dashboard-form-btn text-end'>
+                        <button type="submit" className='btn btn-primary px-4 py-2 fw-semibold'>Save</button>
                     </div>
                 </form>
             </div>
