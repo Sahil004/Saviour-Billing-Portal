@@ -52,25 +52,27 @@ const CreateInvoice = () => {
                         </div>
                     </div>
                     <hr />
-                    <div class="form-row form-section">
-                        <div class="form-group col-md-6">
+                    <div class="row form-section">
+                        <div class="form-group col-md-4 pb-3">
                             <label for="invoiceDate">Invoice Date *</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="invoiceDate" placeholder="25/07/2024" />
-                                <div class="input-group-append">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-calendar-alt"></i>
-                                    </span>
-                                </div>
+                                <input type="date" class="form-control" id="invoiceDate"  />
                             </div>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4 pb-3">
+                            <label for="invoiceDate">Due Date *</label>
+                            <div class="input-group">
+                                <input type="date" class="form-control" id="dueDate"  />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 pb-3">
                             <label for="status">Status *</label>
                             <select id="status" class="form-control">
                                 <option selected>Pending</option>
                             </select>
                         </div>
                     </div>
+                    <hr/>
                     <div className='dashboard-form-btn text-end'>
                         <button type="submit" className='btn btn-primary px-4 py-2 fw-semibold'>Save</button>
                     </div>

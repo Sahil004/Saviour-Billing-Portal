@@ -95,7 +95,7 @@ const Header = ({ onLogout }) => {
                         </div>
                     </div>
 
-                    <button className="btn btn-danger ms-auto" onClick={onLogout}>Logout</button>
+                    <a className="btn text-danger ms-auto" title="Log out" onClick={onLogout}><i className="fi fi-rs-log-out fs-5"></i></a>
                 </div>
             </nav>
         </header>

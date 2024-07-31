@@ -24,6 +24,7 @@ const Dashboard = ({ onLogout }) => {
                 <Route path="services/create-service" element={<AddService />} />
                 <Route path="services/services-list" element={<ServiceList />} />
                 <Route path="clients/add-client" element={<AddClient />} />
+                <Route path="clients/edit-client/:id" element={<AddClient />} />
                 <Route path="clients/client-list" element={<ClientList />} />
                 <Route path="invoice/create-invoice" element={<CreateInvoice />} />
                 {/* Add more routes as needed */}

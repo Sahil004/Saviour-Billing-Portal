@@ -22,7 +22,7 @@ const ClientList = ({ onLogout }) => {
     const addNewClient = () => navigate('/add-client');
 
     function updateClient(id) {
-        navigate(`/edit-client/${id}`);
+        navigate(`/dashboard/clients/edit-client/${id}`);
     }
 
     function removeClient(id) {
@@ -59,8 +59,8 @@ const ClientList = ({ onLogout }) => {
                                         <td>{client.name}</td>
                                         <td>{client.email}</td>
                                         <td>
-                                            <button className="btn" onClick={() => updateClient(client.id)}><i class="bi bi-pencil-fill text-primary"></i></button>
-                                            <button className="btn"  onClick={() => removeClient(client.id)}><i class="bi bi-trash3-fill text-danger fw-bold"></i></button>
+                                            <button className="btn" onClick={() => updateClient(client.id)}><i className="bi bi-pencil-fill text-primary"></i></button>
+                                            <button className="btn"  onClick={() => removeClient(client.id)}><i className="bi bi-trash3-fill text-danger fw-bold"></i></button>
                                         </td>
                                     </tr>
                                 ))

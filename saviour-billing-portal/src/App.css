@@ -14,8 +14,8 @@ img {
 }
 
 a {
-    text-decoration: none;
-    cursor: pointer;
+    text-decoration: none!important;
+    cursor: pointer!important;
 }
 
 /* header  */
