@@ -14,8 +14,8 @@ img {
 }
 
 a {
-    text-decoration: none!important;
-    cursor: pointer!important;
+    text-decoration: none !important;
+    cursor: pointer !important;
 }
 
 /* header  */
@@ -32,7 +32,8 @@ nav,
     height: 10vh;
 }
 
-.navbar-toggler:focus, .navbar-toggler:active {
+.navbar-toggler:focus,
+.navbar-toggler:active {
     box-shadow: none !important;
     outline: none !important;
 }
@@ -57,6 +58,7 @@ nav,
 .li-border {
     border-radius: 5px;
 }
+
 .dashboard-item {
     border: none !important;
     border-radius: 5px;
@@ -66,7 +68,8 @@ nav,
 }
 
 .dashboard-item:hover,
-.dashboard-item:focus, .dashboard-item:active  {
+.dashboard-item:focus,
+.dashboard-item:active {
     color: #379330 !important;
 
     background-color: #E4F3E4 !important;
@@ -77,12 +80,13 @@ nav,
 }
 
 .dashboard-sub-item {
-    border: none!important;
+    border: none !important;
 }
 
-.dashboard-sub-item:hover, .dashboard-sub-item:focus {
+.dashboard-sub-item:hover,
+.dashboard-sub-item:focus {
     color: #379330 !important;
-    background-color: transparent!important;
+    background-color: transparent !important;
 }
 
 /* main */
@@ -105,9 +109,24 @@ nav,
     z-index: 1;
     background: white;
 }
+
 .table-container {
-    max-height: 400px;
+    max-height: 100%;
     overflow-y: auto;
+}
+
+.table td,
+.table th {
+    padding: 0.75rem !important;
+}
+
+.action-btn {
+    border: none !important;
+    cursor: pointer;
+}
+
+.action-btn:hover {
+    opacity: 0.8 !important;
 }
 
 /* Client Component */
@@ -116,6 +135,6 @@ nav,
 /* create invoice */
 
 .create-invoice label {
-    color: rgb(105, 117, 134)!important;
+    color: rgb(105, 117, 134) !important;
     font-size: 0.875rem;
 }
