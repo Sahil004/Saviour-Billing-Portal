@@ -50,8 +50,9 @@ const ServiceList = () => {
   return (
     <div className="bg-white rounded">
       <div className="page-header">
-        <h5 className=' p-4 mb-0'>List Services</h5>
+        <h5 className=' p-4 mb-0'>Servicesss</h5>
       </div>
+      <hr className='m-0' />
       <div className="page-body p-4">
         <div className="table-container rounded">
           <table className="table mb-5 sticky-header">
@@ -85,6 +86,7 @@ const ServiceList = () => {
               }
             </tbody>
           </table>
+
         </div>
       </div>
     </div>

@@ -18,6 +18,10 @@ a {
     cursor: pointer !important;
 }
 
+.main-color {
+    color: #379330!important;
+}
+
 /* header  */
 .navbar-brand img {
     width: 200px;
@@ -137,4 +141,28 @@ nav,
 .create-invoice label {
     color: rgb(105, 117, 134) !important;
     font-size: 0.875rem;
+}
+
+/*  Services */
+
+.card {
+    background-color: #F8FAFC!important;
+}
+.service-title {
+    color :#379330!important;
+    margin-bottom: 0;
+}
+
+.text-grey {
+    color: rgb(105, 117, 134) !important;
+    
+}
+
+.service-code {
+    font-size: 0.875rem;
+}
+
+
+.service-edit-btn {
+    border: 1px solid #379330!important;
 }

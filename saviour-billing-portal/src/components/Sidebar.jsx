@@ -34,6 +34,11 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
+            <Link className='dashboard-sub-item list-group-item list-group-item-action fw-medium' to="/dashboard/services/view-services">
+              View
+            </Link>
+          </li>
+          <li>
             <Link className='dashboard-sub-item list-group-item list-group-item-action fw-medium' to="/dashboard/services/services-list">
               List
             </Link>

@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import CreateInvoice from './invoice/CreateInvoice';
 import AddService from './service/AddService';
 import ServiceList from './service/ServiceList';
+import ViewServices from './service/ViewServices';
 
 const Dashboard = ({ onLogout }) => {
   return (
@@ -23,6 +24,7 @@ const Dashboard = ({ onLogout }) => {
               <Routes>
                 <Route path="services/create-service" element={<AddService />} />
                 <Route path="services/services-list" element={<ServiceList />} />
+                <Route path="services/view-services" element={<ViewServices />} />
                 <Route path="clients/add-client" element={<AddClient />} />
                 <Route path="clients/edit-client/:id" element={<AddClient />} />
                 <Route path="clients/client-list" element={<ClientList />} />
