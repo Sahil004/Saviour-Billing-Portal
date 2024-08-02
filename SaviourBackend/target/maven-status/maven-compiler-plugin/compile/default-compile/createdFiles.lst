@@ -1,0 +1,5 @@
+com\org\SaviourBackend\SaviourBackendApplication.class
+com\org\SaviourBackend\repository\ClientRepository.class
+com\org\SaviourBackend\entity\Client.class
+com\org\SaviourBackend\mapper\ClientMapper.class
+com\org\SaviourBackend\dto\ClientDto.class
