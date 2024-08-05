@@ -1,0 +1,45 @@
+# General
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# OS generated files
+*.swp
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Java
+*.class
+*.log
+target/
+*.jar
+*.war
+
+# Spring Boot
+bin/
+*.iml
+*.ipr
+*.iws
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# STS
+.springBeans
+
+# Eclipse
+.classpath
+.project
+.settings/
