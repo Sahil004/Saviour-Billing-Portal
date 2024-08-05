@@ -50,7 +50,7 @@ const ServiceList = () => {
   return (
     <div className="bg-white rounded">
       <div className="page-header">
-        <h5 className=' p-4 mb-0'>Servicesss</h5>
+        <h5 className=' p-4 mb-0'>Services</h5>
       </div>
       <hr className='m-0' />
       <div className="page-body p-4">
@@ -76,7 +76,7 @@ const ServiceList = () => {
                     <td>{service.serviceDescription}</td>
                     <td>{service.category}</td>
                     <td>{service.rateType}</td>
-                    <td>₹ {service.price}</td>
+                    <td>₹ {service.price}{service.rateType === 'Hourly' ? '/hr' : ''}</td>
                     <td>
                       <button className="btn action-btn" onClick={() => updateService(service.serviceID)}><i className="bi bi-pencil-fill text-primary"></i></button>
                       <button className="btn action-btn" onClick={() => removeService(service.serviceID)}><i className="bi bi-trash3-fill text-danger fw-bold"></i></button>

@@ -23,6 +23,7 @@ const Dashboard = ({ onLogout }) => {
             <div className='main px-3 pt-3 px-lg-4 pt-lg-4'>
               <Routes>
                 <Route path="services/create-service" element={<AddService />} />
+                <Route path="services/edit-service/:id" element={<AddService />} />
                 <Route path="services/services-list" element={<ServiceList />} />
                 <Route path="services/view-services" element={<ViewServices />} />
                 <Route path="clients/add-client" element={<AddClient />} />

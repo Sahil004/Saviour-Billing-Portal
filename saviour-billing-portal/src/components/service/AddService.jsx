@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { createService } from '../../services/ServicesService';
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom';
+import { createService, getService, updateService } from '../../services/ServicesService';
 
 const AddService = () => {
 
@@ -13,16 +13,42 @@ const AddService = () => {
   const [errors, setErrors] = useState({ service: '', code: '', description: '', category: '', rateType: '', price: '' })
   const navigator = useNavigate();
 
-  function addService(e) {
-    e.preventDefault();
-    if (validateForm()) {
-      const services = { serviceName: service, serviceCode: code, serviceDescription: description, category, rateType, price };
-      createService(services).then((response) => {
-        alert('Service Added');
-        navigator('/dashboard/services/services-list')
+  const { id } = useParams();
+  useEffect(() => {
+    if (id) {
+      getService(id).then((response) => {
+        setService(response.data.serviceName);
+        setDescription(response.data.serviceDescription);
+        setCode(response.data.serviceCode);
+        setCategory(response.data.category);
+        setRateType(response.data.rateType);
+        setPrice(response.data.price.toString());
       }).catch(error => {
         console.error(error);
       })
+    }
+  }, [id])
+
+  function addOrUpdateService(e) {
+    e.preventDefault();
+    if (validateForm()) {
+      const services = { serviceName: service, serviceCode: code, serviceDescription: description, category, rateType, price: parseFloat(price)  };
+      
+      if (id) {
+        updateService(id, services).then((response) => {
+          alert('Service Updated');
+          navigator('/dashboard/services/services-list')
+        }).catch(error => {
+          console.error(error);
+        })
+      } else {
+        createService(services).then((response) => {
+          alert('Service Added');
+          navigator('/dashboard/services/services-list')
+        }).catch(error => {
+          console.error(error);
+        })
+      }
     }
   }
 
@@ -85,11 +111,11 @@ const AddService = () => {
   return (
     <div className="create-invoice bg-white rounded">
       <div className="page-header">
-        <h5 className=' p-4 mb-0'>Add Service</h5>
+        <h5 className="p-4 mb-0">{id ? 'Edit Service' : 'Add Service'}</h5>
       </div>
       <hr className='m-0' />
       <div className="page-body p-4">
-        <form className='dashboard-form' onSubmit={addService}>
+        <form className='dashboard-form' onSubmit={addOrUpdateService}>
           <div className="row form-section">
             <div className="form-group col-md-6 col-lg-4 pb-3">
               <label htmlFor="service">Service Name *</label>
