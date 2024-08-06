@@ -57,22 +57,32 @@ const ClientList = () => {
                     <table className="table mb-5 sticky-header">
                         <thead>
                             <tr>
-                                <th>Client ID</th>
+                                <th>ID</th>
                                 <th>Client Name</th>
-                                <th>Client Email</th>
+                                <th>Email</th>
+                                <th>Phone No</th>
+                                <th>Address</th>
+                                <th>Company</th>
+                                <th>Industry</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             {clients.length ? (
                                 clients.map(client => (
-                                    <tr key={client.id}>
-                                        <td>{client.id}</td>
-                                        <td>{client.name}</td>
-                                        <td>{client.email}</td>
+                                    <tr key={client.clientId}>
+                                        <td>{client.clientId}</td>
+                                        <td>{client.clientName}</td>
+                                        <td>{client.clientEmail}</td>
+                                        <td>{client.clientPhone}</td>
+                                        <td>{client.clientAddress}</td>
+                                        <td>{client.clientCompany}</td>
+                                        <td>{client.clientIndustry}</td>
+                                        <td>{client.status}</td>
                                         <td>
-                                            <button className="btn action-btn" onClick={() => updateClient(client.id)}><i className="bi bi-pencil-fill text-primary"></i></button>
-                                            <button className="btn action-btn" onClick={() => removeClient(client.id)}><i className="bi bi-trash3-fill text-danger fw-bold"></i></button>
+                                            <button className="btn action-btn" onClick={() => updateClient(client.clientId)}><i className="bi bi-pencil-fill text-primary"></i></button>
+                                            <button className="btn action-btn" onClick={() => removeClient(client.clientId)}><i className="bi bi-trash3-fill text-danger fw-bold"></i></button>
                                         </td>
                                     </tr>
                                 ))

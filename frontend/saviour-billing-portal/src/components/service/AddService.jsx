@@ -32,8 +32,8 @@ const AddService = () => {
   function addOrUpdateService(e) {
     e.preventDefault();
     if (validateForm()) {
-      const services = { serviceName: service, serviceCode: code, serviceDescription: description, category, rateType, price: parseFloat(price)  };
-      
+      const services = { serviceName: service, serviceCode: code, serviceDescription: description, category, rateType, price: parseFloat(price) };
+
       if (id) {
         updateService(id, services).then((response) => {
           alert('Service Updated');
@@ -109,7 +109,7 @@ const AddService = () => {
     setErrors(prevErrors => ({ ...prevErrors, [field]: '' }));
   }
   return (
-    <div className="create-invoice bg-white rounded">
+    <div className="create-service bg-white rounded">
       <div className="page-header">
         <h5 className="p-4 mb-0">{id ? 'Edit Service' : 'Add Service'}</h5>
       </div>
