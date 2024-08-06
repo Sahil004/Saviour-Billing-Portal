@@ -1,5 +1,6 @@
 package com.org.SaviourBackend.service.impl;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +22,8 @@ public class ClientServiceImpl implements ClientService{
 	public ClientDto createClient(ClientDto clientDto) {
 		
 		Client client=ClientMapper.mapToClient(clientDto);
+		client.setClientAddedDate(LocalDateTime.now());
+        client.setClientUpdatedDate(LocalDateTime.now());
 		Client savedClient = clientRepository.save(client);
 		return ClientMapper.mapToClientDto(savedClient);
 	}
@@ -45,8 +48,14 @@ public class ClientServiceImpl implements ClientService{
 		Client client = clientRepository.findById(clientId).orElseThrow(() -> 
 			new ClientNotFoundException("Client Does not Exist"+clientId));
 		
-		client.setName(updateClient.getName());
-		client.setEmail(updateClient.getEmail());
+		client.setClientName(updateClient.getClientName());
+		client.setClientEmail(updateClient.getClientEmail());
+		client.setClientPhone(updateClient.getClientPhone());
+		client.setClientAddress(updateClient.getClientAddress());
+		client.setClientCompany(updateClient.getClientCompany());
+		client.setClientIndustry(updateClient.getClientIndustry());
+		client.setStatus(updateClient.getStatus());
+		client.setClientUpdatedDate(LocalDateTime.now());
 		
 		Client updatedClientObj = clientRepository.save(client);
 		return ClientMapper.mapToClientDto(updatedClientObj);
