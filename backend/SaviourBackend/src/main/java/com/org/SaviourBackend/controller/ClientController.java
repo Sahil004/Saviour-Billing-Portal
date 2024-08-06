@@ -26,7 +26,7 @@ import com.org.SaviourBackend.service.ClientService;
 @RequestMapping("/api/client")
 public class ClientController {
 	
-	private ClientService clientService;
+	private final ClientService clientService;
 
 	public ClientController(ClientService clientService) {
 		super();
@@ -65,7 +65,7 @@ public class ClientController {
 	@DeleteMapping("{id}")
 	public ResponseEntity<String> deleteClient(@PathVariable("id") Long clientId){
 		clientService.deleteClient(clientId);
-		return ResponseEntity.ok("Employee Deleted  Successfully!");
+		return ResponseEntity.ok("Client Deleted  Successfully!");
 	}
 	
 }
