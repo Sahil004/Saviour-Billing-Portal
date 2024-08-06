@@ -4,53 +4,54 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name= "client ")
+@Table(name = "client")
 public class Client {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long clinetId;
-	
+	private Long clientId;
+
 	@Column(name = "client_name", nullable = false)
 	private String clientName;
-	
+
 	@Column(name = "client_email", nullable = false, unique = true)
 	private String clientEmail;
-	
+
 	@Column(name = "client_phone", nullable = false)
-    private String clientPhone;
+	private String clientPhone;
 
-    @Column(name = "client_address", nullable = false)
-    private String clientAddress;
+	@Column(name = "client_address", nullable = false)
+	private String clientAddress;
 
-    @Column(name = "client_company", nullable = false)
-    private String clientCompany;
+	@Column(name = "client_company", nullable = false)
+	private String clientCompany;
 
-    @Column(name = "client_industry", nullable = false)
-    private String clientIndustry;
+	@Column(name = "client_industry", nullable = false)
+	private String clientIndustry;
 
-    @Column(name = "client_added_date", updatable = false, nullable = false)
-    private LocalDateTime clientAddedDate;
+	@Column(name = "client_added_date", updatable = false, nullable = false)
+	private LocalDateTime clientAddedDate;
 
-    @Column(name = "client_updated_date", nullable = false)
-    private LocalDateTime clientUpdatedDate;
+	@Column(name = "client_updated_date", nullable = false)
+	private LocalDateTime clientUpdatedDate;
 
-    @Column(name = "status", nullable = false)
-    private String status;
+	@Column(name = "status", nullable = false)
+	private String status;
 
 	public Long getClinetId() {
-		return clinetId;
+		return clientId;
 	}
 
 	public void setClinetId(Long clinetId) {
-		this.clinetId = clinetId;
+		this.clientId = clinetId;
 	}
 
 	public String getClientName() {
@@ -125,16 +126,27 @@ public class Client {
 		this.status = status;
 	}
 
+	@PrePersist
+	protected void onCreate() {
+		clientAddedDate = LocalDateTime.now();
+		status = "ACTIVE"; // Default status
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		clientUpdatedDate = LocalDateTime.now();
+	}
+
 	public Client() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Client(Long clinetId, String clientName, String clientEmail, String clientPhone, String clientAddress,
+	public Client(Long clientId, String clientName, String clientEmail, String clientPhone, String clientAddress,
 			String clientCompany, String clientIndustry, LocalDateTime clientAddedDate, LocalDateTime clientUpdatedDate,
 			String status) {
 		super();
-		this.clinetId = clinetId;
+		this.clientId = clientId;
 		this.clientName = clientName;
 		this.clientEmail = clientEmail;
 		this.clientPhone = clientPhone;
@@ -145,5 +157,5 @@ public class Client {
 		this.clientUpdatedDate = clientUpdatedDate;
 		this.status = status;
 	}
-	
+
 }
