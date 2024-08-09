@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { listClient } from '../../services/ClientService';
+import { useNavigate } from 'react-router-dom';
 
 const CreateInvoice = () => {
 
@@ -7,6 +8,9 @@ const CreateInvoice = () => {
     const [selectedClient, setSelectedClient] = useState('');
     const [selectedClientId, setSelectedClientId] = useState('');
 
+    const navigate = useNavigate();
+
+    const newClient = () => navigate('/dashboard/clients/add-client');
     useEffect(() => {
         listClient().then(response => {
             setClients(response.data);
@@ -17,7 +21,7 @@ const CreateInvoice = () => {
         const clientId = e.target.value;
         setSelectedClientId(clientId);
         const client = clients.find(c => c.clientId === parseInt(clientId));
-        setSelectedClient(client)
+        setSelectedClient(client || null)
     };
 
     return (
@@ -33,7 +37,7 @@ const CreateInvoice = () => {
                             <label htmlFor="invoiceNumber" className='text-grey'>Invoice Number *</label>
                             <input type="text" className="form-control rounded" id="invoiceNumber" placeholder="#58963" disabled />
                         </div>
-                        <div className="form-group col-md-6 col-lg-4 pb-3">
+                        <div className="form-group col-md-6 col-xl-4 pb-3">
                             <label htmlFor="selectClient">Select Client</label>
                             <div className="input-group">
                                 <select
@@ -48,7 +52,7 @@ const CreateInvoice = () => {
                                     ))
                                     }
                                 </select>
-                                <button className="btn btn-success" type="button">+ New Client</button>
+                                <button className="btn btn-primary" type="button" onClick={() =>newClient()}>+ New Client</button>
                             </div>
                         </div>
                     </div>
@@ -60,26 +64,47 @@ const CreateInvoice = () => {
                                 type='text'
                                 id='clientName'
                                 name='clientName'
-                                value={selectedClient.clientName}
+                                value={selectedClient ? selectedClient.clientName : ''}
                                 placeholder='e.g., James Walter'
                                 className='form-control'
-                                disabled
+                                readOnly={!!selectedClientId}
                             />
                         </div>
-                        <div className="form-group col-md-4 pb-3">
+                        <div className="form-group col-md-6 col-lg-4 pb-3">
                             <label htmlFor="clientEmail">Client Email *</label>
-                            <input type="email" className="form-control rounded" id="clientEmail" placeholder="alex@company.com" />
+                            <input
+                                type='email'
+                                id='clientEmail'
+                                name='clientEmail'
+                                value={selectedClient ? selectedClient.clientEmail : ''}
+                                placeholder='e.g., james01@xyz.co'
+                                className='form-control'
+                                readOnly={!!selectedClientId}
+                            />
                         </div>
-                        <div className="form-group col-md-4 pb-3">
-                            <label htmlFor="clientContactNumber">Client Contact Number *</label>
-                            <input type="text" className="form-control rounded" id="clientContactNumber" placeholder="+00 00000 00000" />
+                        <div className="form-group col-md-6 col-lg-4 pb-3">
+                            <label htmlFor="clientPhone">Client Contact Number *</label>
+                            <input
+                                type='tel'
+                                id='clientPhone'
+                                name='clientPhone'
+                                value={selectedClient ? selectedClient.clientPhone : ''} 
+                                placeholder="+00 00000 00000"
+                                className='form-control'
+                                readOnly={!!selectedClientId}
+                            />
                         </div>
-                    </div>
-
-                    <div className="row form-section">
-                        <div className="form-group col-md-12 pb-3">
+                        <div className="form-group col-12 pb-3">
                             <label htmlFor="clientAddress">Client Address *</label>
-                            <input type="text" className="form-control" id="clientAddress" placeholder="Enter Address" />
+                            <input
+                                type='text'
+                                id='clientAddress'
+                                name='clientAddress'
+                                value={selectedClient ? selectedClient.clientAddress : ''}
+                                placeholder='Enter Address'
+                                className='form-control'
+                                readOnly={!!selectedClientId}
+                            />
                         </div>
                     </div>
                     <hr />
@@ -102,6 +127,10 @@ const CreateInvoice = () => {
                                 <option selected>Pending</option>
                             </select>
                         </div>
+                    </div>
+                    <hr />
+                    <div className="pb-3">
+                        <button type='button' className='btn btn btn-outline-success fw-semibold'>+ Add service</button>
                     </div>
                     <hr />
                     <div className='dashboard-form-btn text-end'>
